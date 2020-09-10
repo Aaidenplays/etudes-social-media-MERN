@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Form, Button} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
-import DBURL from "../../constants.js"
+import {DBURL} from "../../constants.js";
 
 export class Signup extends Component {
     constructor(){
@@ -15,7 +15,7 @@ export class Signup extends Component {
             error: ""
         }
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
@@ -24,10 +24,15 @@ export class Signup extends Component {
         })
     }
 
-    handleSubmit(event) {
+    handleSubmit = async (event) => {
         event.preventDefault()
-        console.log(DBURL)
-        // axios.post("")
+        // console.log(DBURL)
+        await axios.post(`${DBURL}/signup`, {
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password
+        })
+        .then((res) => console.log(res.data))
     }
 
     render() {

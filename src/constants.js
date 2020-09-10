@@ -1,1 +1,1 @@
-exports.DBURL = "http://localhost:8080"
+export const DBURL = "http://localhost:8080"
