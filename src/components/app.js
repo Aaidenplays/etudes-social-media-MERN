@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
-import NavBar from './Navbar.js'
+import NavBar from './Navbar.js';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import MainRouter from "./MainRouter"
 import Index from "./index";
 import Signup from "./user/Signup";
 import Signin from "./user/Signin";
+
+//REDUX STUFF
+import {Provider} from "react-redux"; 
+import {createStore, applyMiddleware} from "redux";
+import promiseMiddleware from "redux-promise";
+import reducers from "../reducers";
+
+const storeWithMiddleware = applyMiddleware(promiseMiddleware)(createStore);
+
 
 export default class App extends Component {
   constructor(){
@@ -34,6 +43,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
+      <Provider store={storeWithMiddleware(reducers)}>
         <NavBar />
         <BrowserRouter>
           <Switch>
@@ -42,6 +52,7 @@ export default class App extends Component {
             <Route exact path="/" component={Index} />
           </Switch>
         </BrowserRouter>
+      </Provider>
       </div>
     );
   }
