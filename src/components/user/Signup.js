@@ -26,13 +26,13 @@ export class Signup extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault()
-        // console.log(DBURL)
-        await axios.post(`${DBURL}/signup`, {
-            name: this.state.name,
-            email: this.state.email,
-            password: this.state.password
-        })
-        .then((res) => console.log(res.data))
+        // // console.log(DBURL)
+        // await axios.post(`${DBURL}/signup`, {
+        //     name: this.state.name,
+        //     email: this.state.email,
+        //     password: this.state.password
+        // })
+        // .then((res) => console.log(res.data))
     }
 
     render() {
