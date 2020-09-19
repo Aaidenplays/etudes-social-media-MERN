@@ -1,24 +1,32 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {
-    getUserSigning,
     getUserSignup
 } from '../actions'
+import Signup from '../components/user/Signup';
 
-class HomeContainer extends Component {
+class SignupContainer extends Component {
 
+
+    render() {
+        return (
+            <Signup
+                {...this.props}
+            />
+        )
+    }
 }
 
+
 const mapStateToProps = state => {
-    return state.app
+    return state.auth
 }
 
 const mapDispatchToProps = {
-    getUserSigning,
     getUserSignup
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(SignupContainer)
 
 
 // export default class App extends Component {
