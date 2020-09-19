@@ -12,6 +12,7 @@ class SignupContainer extends Component {
         return (
             <Signup
                 {...this.props}
+                userSignup = {this.props.getUserSignup}
             />
         )
     }

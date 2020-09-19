@@ -5,7 +5,6 @@ export const GET_USER_SIGNUP = "GET_USER_SIGNUP"
 export const GET_USER_SIGNIN = "GET_USER_SIGNIN"
 
 // action types for both
-export const SHOW_LOADING_SPINNER;
 
 // action creator for App
 

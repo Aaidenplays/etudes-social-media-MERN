@@ -1,11 +1,10 @@
 import{ getUserSignin, getUserSignup} from '../actions';
 
 defaultState = {
-    user:{
       id: undefined,
       name: "",
-      email: ""
-    }
+      email: "",
+      password: ""
   }
 
   export default function(state = defaultState, action) {
